@@ -43,4 +43,7 @@ class CSP3(nn.Module):
         self.m = nn.Sequential(*[Bottleneck(c_, c_, shortcut, g, e) for _ in range(n)])
 
     def forward(self, x):
-        return self.conv3(torch.cat(self.m(self.conv1(x)), self.conv2(x)))
+        return self.conv3(torch.cat((self.m(self.conv1(x)), self.conv2(x)), dim=1))
+
+class CSPDarknet53(nn.Module):
+    def __init__(self, 1):
