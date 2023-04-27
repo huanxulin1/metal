@@ -41,4 +41,7 @@ class ConvBnAct(nn.Module):
                  stride = 1,
                  groups = 1,
                  norm_layer = None,
-                 activati):
+                 activation_layer = None):
+        super(ConvBnAct, self).__init__()
+
+
